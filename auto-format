@@ -1,0 +1,7 @@
+import csv
+file = open("data")
+with open("data") as infile:
+    pairs = dict(csv.reader(infile))
+
+for key,value in pairs.items():
+    print '[{"recipient": ' + '"'+key+'"' + "," + ' "amount": ' + '"'+ value +'"' + ':}]'
