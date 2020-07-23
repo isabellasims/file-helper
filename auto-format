@@ -1,3 +1,4 @@
+v1
 import csv
 file = open("data")
 with open("data") as infile:
@@ -5,3 +6,35 @@ with open("data") as infile:
 
 for key,value in pairs.items():
     print '[{"recipient": ' + '"'+key+'"' + "," + ' "amount": ' + '"'+ value +'"' + ':}]'
+    
+v2
+
+# import csv
+# file = open("tgb-6015-250-50-true.csv")
+# with open("tgb-6015-250-50-true.csv") as infile:
+#     reader = csv.DictReader(infile)
+#     for row in reader:
+#         print(row)
+
+import csv
+file = open("tgb-6015-250-50-true.csv")
+with open("tgb-6015-250-50-true.csv") as infile:
+    pairs = dict(csv.reader(infile))
+
+
+json = ""
+
+for key, value in pairs.items():
+    # print(key)
+    # print(value)
+    json = json + '{"recipient": ' + '"'+key+'"' + "," + ' "amount":' + '"' + value + '"' + '},'
+    print('{"recipient": ' + '"'+key+'"' + "," + ' "amount":' + '"' + value + '"' + '},')
+
+
+json = json[:-1]
+json = "[" + json + "]"
+print json
+
+
+    
+    
